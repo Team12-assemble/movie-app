@@ -2,9 +2,8 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useState, useEffect} from "react";
 import Detail from "./pages/Detail";
 
-
 function App() {
-   const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -23,9 +22,11 @@ function App() {
   console.log("movies", movies);
   return (
     <Router>
-      <Routes>
-        <Route path="/detail" element={<Detail />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/detail" element={<Detail movies={movies} />} />
+        </Routes>
+      </main>
     </Router>
   );
 }
