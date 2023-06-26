@@ -1,8 +1,10 @@
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useState, useEffect} from "react";
+import Detail from "./pages/Detail";
+
 
 function App() {
-  // movie data가 담길 state
-  const [movies, setMovies] = useState([]);
+   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -19,7 +21,13 @@ function App() {
   }, []);
   console.log("==========");
   console.log("movies", movies);
-  return <div className="App"></div>;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/detail" element={<Detail />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
