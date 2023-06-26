@@ -24,11 +24,13 @@ function App() {
   console.log("movies", movies);
   return (
     <Router>
-      <Header setMovies={setMovies} />
+    <Header setMovies={setMovies} />
+      <main>
       <Routes>
         <Route path="/detail" element={<Detail />} />
         <Route path="/detail" element={<MainList />} />
       </Routes>
+      </main>
     </Router>
   );
 }
