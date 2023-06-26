@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useState, useEffect} from "react";
 import Detail from "./pages/Detail";
 import Header from "./components/Header";
+import MainList from "./MainList";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -26,6 +27,7 @@ function App() {
       <Header setMovies={setMovies} />
       <Routes>
         <Route path="/detail" element={<Detail />} />
+        <Route path="/detail" element={<MainList />} />
       </Routes>
     </Router>
   );
