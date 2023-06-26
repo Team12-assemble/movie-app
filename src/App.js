@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useState, useEffect} from "react";
 import Detail from "./pages/Detail";
+import MainList from "./MainList";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/detail" element={<Detail />} />
+        <Route path="/detail" element={<MainList />} />
       </Routes>
     </Router>
   );
