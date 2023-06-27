@@ -1,3 +1,10 @@
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .movie-card {
   position: relative;
   display: inline-block;
@@ -24,10 +31,6 @@
 }
 
 .movie-link {
-    display:grid;
-    grid-template-columns: (5,1fr);
-}
-
-main {
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: (5, 1fr);
 }
