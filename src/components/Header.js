@@ -16,12 +16,13 @@ const Header = () => {
 
   const goHome = () => {
     navigate("/");
+    setSearch("");
   };
 
   return (
     <header>
       <h1 onClick={goHome}>Movie App</h1>
-      <Search onChange={onChange} onSubmit={onSubmit} />
+      <Search onChange={onChange} onSubmit={onSubmit} search={search} />
     </header>
   );
 };
