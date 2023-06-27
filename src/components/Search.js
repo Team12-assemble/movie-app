@@ -1,32 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 
-const Search = ({setMovies}) => {
-  const [search, setSearch] = useState("");
-
-  const getSearchMovies = async () => {
-    fetch(
-      `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year&query_term=${search}`,
-    )
-      .then(res => res.json())
-      .then(json => {
-        console.log(json.data.movies);
-        setMovies(json.data.movies);
-      });
-  };
-
-  const onSubmit = e => {
-    e.preventDefault();
-    getSearchMovies();
-  };
-
-  const onChange = e => {
-    setSearch(e.target.value);
-  };
-
+const Search = ({onSubmit, onChange}) => {
   return (
     <form onSubmit={onSubmit}>
       <input
-        value={search}
+        name="searchBar"
         placeholder="검색어를 입력하세요."
         type="text"
         onChange={onChange}
