@@ -6,21 +6,42 @@
   margin: 3rem;
   width: 100%;
   display: flex;
-  flex-direction: row;
-  border: 1px solid white;
-  @include padding02;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+}
+
+.crums {
+  color: rgba(225, 225, 225, 0.5);
+  display: flex;
+  gap: 10px;
+  font-size: 1rem;
+  padding: 0 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.item_box {
+  display: flex;
 }
 
 .poster,
 .description {
   height: 100%;
-  width: 50%;
   padding: 1rem 2.5rem;
 }
 
-img {
-  aspect-ratio: 1/1;
-  object-fit: cover;
+.description {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.poster {
+  width: 40%;
+  aspect-ratio: 3/4;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 header {
@@ -29,6 +50,9 @@ header {
 }
 
 small {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
   color: grey;
 }
 
@@ -46,7 +70,23 @@ nav {
   border-bottom: 1px solid rgba(221, 221, 221, 0.3);
 }
 
-li {
+article,
+nav,
+small {
+  margin-top: 1rem;
+}
+
+.info:not(:first-child) {
+  border-left: 2px solid gray;
+  padding-left: 1rem;
+}
+
+.genres {
+  display: flex;
+  gap: 10px;
+}
+
+.overview {
   width: 20%;
   border-bottom: 3px solid red;
   text-align: center;
@@ -54,7 +94,15 @@ li {
   padding-bottom: 0.7rem;
 }
 
-article,
-nav {
-  margin-top: 1rem;
+article {
+  letter-spacing: 1px;
+}
+
+.rating {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }

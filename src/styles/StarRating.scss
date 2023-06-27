@@ -1,0 +1,26 @@
+.star_rating {
+  color: #989898;
+  position: relative;
+  unicode-bidi: bidi-override;
+  width: max-content;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1.3px;
+  -webkit-text-stroke-color: #fcc419;
+}
+
+.star_rating_fill {
+  color: #fcc419;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-text-fill-color: #fcc419;
+}
+
+.star_rating_base {
+  z-index: 0;
+  padding: 0;
+}
