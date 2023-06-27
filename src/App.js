@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Detail from "./pages/Detail";
 import Header from "./components/Header";
-import MainList from "./components/MainList";
+import MainList from "./pages/MainList";
 
 function App() {
   return (

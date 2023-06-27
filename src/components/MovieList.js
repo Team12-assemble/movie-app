@@ -1,8 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import "../styles/MainList.scss";
+import default_img from "../images/placeholder_image.webp";
 
 const MovieList = ({movies}) => {
+  const handleImgError = e => {
+    e.target.src = default_img;
+  };
   return (
     <>
       {movies ? (
@@ -22,7 +26,11 @@ const MovieList = ({movies}) => {
               className="movie-link"
             >
               <div className="movie-card">
-                <img src={movie.medium_cover_image} alt="영화 포스터" />
+                <img
+                  src={movie.medium_cover_image}
+                  onError={handleImgError}
+                  alt="영화 포스터"
+                />
                 <div className="movie-details">
                   <h2>{movie.title}</h2>
                   <p>{movie.year}</p>
