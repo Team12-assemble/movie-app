@@ -18,9 +18,7 @@ export default function Detail() {
           Home
         </Link>
         <span>&gt;</span>
-        <Link className="back" to=".">
-          Detail
-        </Link>
+        <span>Detail</span>
       </div>
       <section className="item_box">
         <img
