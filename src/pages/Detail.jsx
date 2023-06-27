@@ -1,12 +1,15 @@
 import StarRating from "../components/StarRating";
 import "../styles/Detail.scss";
 import {Link, useLocation} from "react-router-dom";
+import default_img from "../images/placeholder_image.webp";
 
 export default function Detail() {
   const location = useLocation();
   const movie = location.state;
-  // console.log(location);
-  // console.log(movie);
+
+  const handleImgError = e => {
+    e.target.src = default_img;
+  };
 
   return (
     <section className="detail">
@@ -15,16 +18,17 @@ export default function Detail() {
           Home
         </Link>
         <span>&gt;</span>
-        <Link className="back" to="..">
+        <Link className="back" to=".">
           Detail
         </Link>
       </div>
       <section className="item_box">
-        <div
+        <img
           className="poster"
-          style={{backgroundImage: `url(${movie.poster})`}}
-          alt="영화 포스터"
-        ></div>
+          onError={handleImgError}
+          src={movie.poster}
+          alt="포스터 이미지"
+        ></img>
         <section className="description">
           <header>
             <div>

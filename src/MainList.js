@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
+import "./styles/MainList.scss";
+import default_img from "./images/placeholder_image.webp";
 
 function MainList() {
   const [loading, setLoading] = useState(true);
@@ -15,6 +17,10 @@ function MainList() {
         setLoading(false);
       });
   }, []);
+
+  const handleImgError = e => {
+    e.target.src = default_img;
+  };
 
   return (
     <>
@@ -34,10 +40,19 @@ function MainList() {
                 rating: movie.rating,
                 summary: movie.summary,
               }}
+              className="movie-link"
             >
-              <img src={movie.medium_cover_image} alt="영화 포스터" />
-              <h2 className="hover_title">{movie.title}</h2>
-              <p className="hover_year">{movie.year}</p>
+              <div className="movie-card">
+                <img
+                  src={movie.medium_cover_image}
+                  onError={handleImgError}
+                  alt="영화 포스터"
+                />
+                <div className="movie-details">
+                  <h2>{movie.title}</h2>
+                  <p>{movie.year}</p>
+                </div>
+              </div>
             </Link>
           </div>
         ))
