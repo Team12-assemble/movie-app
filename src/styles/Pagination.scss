@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+button {
+  font-size: 2rem;
+  margin: 0 1rem;
+  background: transparent;
+  color: red;
+  border: none;
+}
+
+li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
