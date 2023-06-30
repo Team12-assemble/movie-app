@@ -3,10 +3,11 @@
 
 import {useState, useEffect, useCallback} from "react";
 
-const useFetchMovies = (url, title) => {
+const useFetchMovies = (url, title, activePage) => {
   const [loading, setLoading] = useState(true);
   const [payload, setPayload] = useState(null);
   const [error, setError] = useState("");
+  //   const [page, setPage] = useState({count: 0, limit: 0});
 
   const fetchUrl = useCallback(async () => {
     //로딩
@@ -16,6 +17,11 @@ const useFetchMovies = (url, title) => {
       const json = await response.json();
       console.log("fetchData", json.data);
       setPayload(json.data);
+      //   activePage &&
+      //     setPage({
+      //       count: payload.movie_count,
+      //       limit: payload.limit,
+      //     });
     } catch (err) {
       setError(err);
     }
@@ -25,9 +31,9 @@ const useFetchMovies = (url, title) => {
 
   useEffect(() => {
     fetchUrl();
-  }, [title, fetchUrl]);
+  }, [title, activePage, fetchUrl]);
 
-  return {loading, payload, error, fetchUrl};
+  return {loading, payload, error};
 };
 
 export default useFetchMovies;
