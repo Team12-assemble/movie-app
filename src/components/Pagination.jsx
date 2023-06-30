@@ -1,5 +1,5 @@
 import "../styles/Pagination.scss";
-import {usePagination} from "./usePagination";
+import {usePagination} from "../hooks/usePagination";
 
 export default function Pagination({page, activePage, setActivePage}) {
   const {startPage, lastPage, onClickPage, onClickPrevPage, onClickNextPage} =
