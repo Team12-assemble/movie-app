@@ -7,21 +7,13 @@ const useFetchMovies = (url, title, activePage) => {
   const [loading, setLoading] = useState(true);
   const [payload, setPayload] = useState(null);
   const [error, setError] = useState("");
-  //   const [page, setPage] = useState({count: 0, limit: 0});
 
   const fetchUrl = useCallback(async () => {
-    //로딩
-    setLoading(true);
+    // setLoading(true);
     try {
       const response = await fetch(url);
       const json = await response.json();
-      console.log("fetchData", json.data);
       setPayload(json.data);
-      //   activePage &&
-      //     setPage({
-      //       count: payload.movie_count,
-      //       limit: payload.limit,
-      //     });
     } catch (err) {
       setError(err);
     }
