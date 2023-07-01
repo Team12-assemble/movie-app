@@ -1,0 +1,86 @@
+.live_chat_open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  z-index: 0;
+
+  width: 3.5rem;
+  height: 3.5rem;
+  color: red;
+  background-color: black;
+
+  border: 1px solid red;
+  border-radius: 50%;
+
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  &:hover {
+    background-color: red;
+    color: white;
+  }
+
+  .live_chat_icon {
+    font-size: 1.3rem;
+  }
+}
+
+header {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid gray;
+  padding: 0.6rem 1rem;
+}
+
+.live-chat-modal {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  background-color: white;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.5rem 0rem;
+  //   border: 2px solid red;
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  .close {
+    // width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.close-icon {
+  font-size: 1.5rem;
+}
+
+input {
+  padding: 0 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+.live-chat-body {
+  background-color: rgba(231, 231, 231, 0.5);
+  padding: 1rem 0;
+}
+
+ul {
+  padding: 0.5 rem 1rem;
+}
+
+form {
+  background-color: white;
+  padding: 0.5rem 1rem;
+}
+
+button {
+  color: rgb(219, 219, 219);
+}
