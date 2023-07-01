@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Search from "./Search";
 import "../styles/Header.scss";
+import UserName from "./UserName";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -22,7 +23,10 @@ const Header = () => {
   return (
     <header>
       <h1 onClick={goHome}>Movie App</h1>
-      <Search onChange={onChange} onSubmit={onSubmit} search={search} />
+      <section className="header-right">
+        <UserName />
+        <Search onChange={onChange} onSubmit={onSubmit} search={search} />
+      </section>
     </header>
   );
 };

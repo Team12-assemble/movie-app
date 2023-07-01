@@ -4,6 +4,7 @@ import {useLocation} from "react-router-dom";
 import "../styles/MainList.scss";
 import useFetchMovies from "../hooks/useFetchMovies";
 import Pagination from "../components/Pagination";
+import LiveChat from "../components/LiveChat";
 
 function MainList() {
   const [activePage, setActivePage] = useState(1);
@@ -30,6 +31,7 @@ function MainList() {
           <div className="movie-list">
             <MovieList movies={payload.movies} />
           </div>
+          <LiveChat />
           <Pagination
             page={{count: payload.movie_count, limit: payload.limit}}
             setActivePage={setActivePage}
