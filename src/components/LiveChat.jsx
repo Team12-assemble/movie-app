@@ -10,8 +10,7 @@ import "../styles/LiveChat.scss";
 
 export default function LiveChat() {
   const [isActive, setIsActive] = useState(false);
-  const {username, setUsername, setMessage, message, chats, handleSubmit} =
-    useLiveChat();
+  const {setMessage, message, chats, handleSubmit} = useLiveChat();
 
   const handleToggle = () => {
     setIsActive(prev => !prev);
@@ -24,33 +23,32 @@ export default function LiveChat() {
           <FontAwesomeIcon icon={faMessage} className="live_chat_icon" />
         </div>
       ) : (
-        <section className="live-chat-modal">
+        <section className={`live-chat-modal ${isActive ? "on" : ""}`}>
           <header>
             <h4>실시간 채팅</h4>
-            <div className="close" onClick={handleToggle}>
+            <div
+              className={`close ${isActive ? "" : "off"}`}
+              onClick={handleToggle}
+            >
               <FontAwesomeIcon icon={faXmark} className="close-icon" />
             </div>
           </header>
           <section className="live-chat-body">
-            <input
-              onChange={e => {
-                setUsername(e.target.value);
-              }}
-              name="username"
-              value={username}
-              placeholder="사용자 이름을 입력해주세요."
-            />
-            <ul>
+            <ul className="chat-list">
               {chats.map((chat, i) => {
                 return (
-                  <li key={i}>
-                    <label>{chat.username}</label>: {chat.content} - {chat.time}
+                  <li className="chat" key={i}>
+                    <label>{chat.username}</label>
+                    <p className="chat-content">{chat.content}</p>
+                    <p className="chat-time">{chat.time}</p>
                   </li>
                 );
               })}
             </ul>
             <form onSubmit={handleSubmit}>
               <input
+                required
+                maxLength={30}
                 onChange={e => {
                   setMessage(e.target.value);
                 }}
@@ -58,7 +56,7 @@ export default function LiveChat() {
                 value={message}
                 placeholder="무엇이든 물어보세요."
               />
-              <button type="submit">
+              <button className="chat-submit-btn" type="submit">
                 <FontAwesomeIcon icon={faPaperPlane} />
               </button>
             </form>

@@ -4,7 +4,10 @@ import {useEffect, useState} from "react";
 const socket = io("http://localhost:3001");
 
 export default function useLiveChat() {
-  const [username, setUsername] = useState("");
+  const savedName = localStorage.getItem("username");
+  const [username, setUsername] = useState(() => {
+    return savedName || "";
+  });
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
 
@@ -15,14 +18,27 @@ export default function useLiveChat() {
     };
   }, []);
 
+  const handleUsername = e => {
+    setUsername(e.target.value);
+  };
+
+  const onEnterUsername = e => {
+    if (e.key === "Enter") {
+      localStorage.setItem("username", username);
+      window.location.reload();
+    }
+  };
+
   const handleMessage = message => {
     setChats(prev => [...prev, message]);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (message.trim() !== "") {
-      const currentTime = new Date().toLocaleDateString();
+    if (savedName === null) {
+      alert("우측 상단의 사용자 이름을 입력해주세요.");
+    } else if (message.trim() !== "") {
+      const currentTime = new Date().toLocaleTimeString();
       socket.emit("message", {
         username,
         content: message,
@@ -33,5 +49,15 @@ export default function useLiveChat() {
     }
   };
 
-  return {username, setUsername, setMessage, message, chats, handleSubmit};
+  return {
+    username,
+    savedName,
+    setUsername,
+    setMessage,
+    message,
+    chats,
+    handleUsername,
+    onEnterUsername,
+    handleSubmit,
+  };
 }
