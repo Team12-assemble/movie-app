@@ -16,3 +16,12 @@ input[name="searchBar"] {
   border-radius: 8px;
   font-size: 16px;
 }
+
+.header-right {
+  width: 35%;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
