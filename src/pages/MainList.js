@@ -19,7 +19,6 @@ function MainList() {
   const searchUrl = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year&query_term=${title}`;
   const activeUrl = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year&page=${activePage}`;
 
-  console.log(movies);
   const {loading, error} = useFetchMovies(
     title ? searchUrl : activePage ? activeUrl : url,
     title,
