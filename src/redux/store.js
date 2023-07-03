@@ -1,6 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {logger} from "redux-logger";
+import {createLogger} from "redux-logger";
 import MovieStore from "../redux/MovieStore.jsx";
+
+const logger = createLogger();
 
 const store = configureStore({
   reducer: {
