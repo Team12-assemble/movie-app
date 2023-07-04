@@ -2,8 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "../styles/MainList.scss";
 import default_img from "../images/placeholder_image.webp";
+import {useSelector} from "react-redux";
 
-const MovieList = ({movies}) => {
+const MovieList = () => {
+  const {movies} = useSelector(state => state.movieStore);
   const handleImgError = e => {
     e.target.src = default_img;
   };

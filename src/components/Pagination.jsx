@@ -1,11 +1,14 @@
 import "../styles/Pagination.scss";
 import {usePagination} from "../hooks/usePagination";
+import {useSelector} from "react-redux";
 
-export default function Pagination({page, activePage, setActivePage}) {
+export default function Pagination({activePage, setActivePage}) {
+  const payload = useSelector(state => state.movieStore);
+  // console.log(payload);
+  const page = {count: payload.count, limit: payload.limit};
   const {startPage, lastPage, onClickPage, onClickPrevPage, onClickNextPage} =
     usePagination({
       page,
-      activePage,
       setActivePage,
     });
 

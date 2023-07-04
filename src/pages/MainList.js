@@ -16,7 +16,7 @@ function MainList() {
   const searchUrl = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year&query_term=${title}`;
   const activeUrl = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year&page=${activePage}`;
 
-  const {loading, payload, error} = useFetchMovies(
+  const {loading, error} = useFetchMovies(
     title ? searchUrl : activePage ? activeUrl : url,
     title,
   );
@@ -29,14 +29,10 @@ function MainList() {
       ) : (
         <>
           <div className="movie-list">
-            <MovieList movies={payload.movies} />
+            <MovieList />
           </div>
           <LiveChat />
-          <Pagination
-            page={{count: payload.movie_count, limit: payload.limit}}
-            setActivePage={setActivePage}
-            activePage={activePage}
-          />
+          <Pagination setActivePage={setActivePage} activePage={activePage} />
         </>
       )}
     </>

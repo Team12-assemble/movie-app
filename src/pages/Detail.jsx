@@ -35,8 +35,8 @@ export default function Detail() {
                 <span className="info">{movie.year}</span>
                 <span className="info">{movie.runtime}m</span>
                 <ul className="info genres">
-                  {movie.genres.map(genre => {
-                    return <li>{genre}</li>;
+                  {movie.genres.map((genre, idx) => {
+                    return <li key={idx}>{genre}</li>;
                   })}
                 </ul>
               </small>
