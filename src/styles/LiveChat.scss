@@ -49,9 +49,14 @@ header {
   //   border: 2px solid red;
   border-radius: 8px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 1s;
+  opacity: 0;
+  pointer-events: none;
 
   &.on {
     animation: fadeIn 0.7s;
+    opacity: 1;
+    pointer-events: visible;
   }
 
   .close {
@@ -59,9 +64,12 @@ header {
     cursor: pointer;
     display: flex;
     justify-content: flex-end;
-    &.off {
-      animation: fadeIn 0.7s;
-    }
+  }
+
+  &.off {
+    opacity: 0;
+    animation: fadeIn 0.7s;
+    pointer-events: none;
   }
 }
 
